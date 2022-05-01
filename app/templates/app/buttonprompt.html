@@ -1,0 +1,14 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<div id="prompt_text">
+    {% for line in promptLines %}
+        <p>{{line}}</p>
+    {% endfor %}
+</div>
+<div id="prompt_options">
+    {% for button in promptButtons %}
+        <button type="button" id="button" value="{{button}}" onclick="">{{button}}</button>
+    {% endfor %}
+</div>
+{% endblock %}

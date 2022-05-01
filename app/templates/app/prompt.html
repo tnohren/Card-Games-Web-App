@@ -1,0 +1,40 @@
+{% extends "app/layout.html" %}
+{% block content %}
+    {% if dealerHand %}
+        <div id="dealer">
+            {% include "app/card.html" with cards=dealerHand %}
+        </div>
+    {% endif %}
+    {% if playerHand %}
+        <div id="player">
+            {% include "app/card.html" with cards=playerHand %}
+        </div>
+    {% endif %}
+    <!--{% if handList %}
+        <div id="handlist">
+            {% for hand in handList %}
+                <p>{{hand.player}}</p>
+                <!--{% include "app/card.html" with cards=hand.cards %}
+            {% endfor %}
+        </div>
+    {% endif %}-->
+    {% if promptList %}
+        <div class="prompts">
+            {% for prompt in promptList %}
+                <p>{{prompt}}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if buttonList %}
+        <div class="buttons">
+            {% for button in buttonList %}
+            <a href={% url button.callback button.value %} class="btn btn-default">{{button.display_value}}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if expectTextInput %}
+        <div class="textinput">
+            <input type="text" onkeydown={{callback}}/>
+        </div>
+    {% endif %}
+{% endblock %}
