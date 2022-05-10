@@ -11,7 +11,7 @@ from app import forms, views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('home/<str:ignore>', views.home2, name="home2"),
+    path('home/<str:ignore>', views.home, name="home2"),
     path('about/', views.about, name = 'about'),
     path('login/',
          LoginView.as_view
@@ -35,4 +35,6 @@ urlpatterns = [
     path('playblackjack/<int:gameNumber>', views.PlayBlackjack, name="playblackjack"),
     path('hit/<int:gameNumber>', views.HandleHit, name="hit"),
     path('stay/<int:gameNumber>', views.HandleStay, name="stay"),
+    path('loadblackjack/<int:gameNumber>', views.LoadBlackjack, name="loadblackjack"),
+    path('loadpoker/<int:gameNumber>', views.LoadPoker, name="loadpoker"),
 ]

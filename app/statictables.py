@@ -1,5 +1,4 @@
 import itertools
-import random
 from .models import *
 from .CardandDeck import *
 
@@ -18,17 +17,17 @@ def GetCardsList():
         cards = Cards.objects.all()
     return cards
 
-def CreateNewDeck():
+def CreateNewDeck() -> Deck:
     deck = Deck()
     for card in GetCardsList():
         deck.AddCard({'suit': card.suit, 'value': card.value})
     deck.Shuffle()
     return deck
 
-def GetCardSuitDisplay(cardSuit):
+def GetCardSuitDisplay(cardSuit: int) -> str:
     return Cards.objects.filter(suit=cardSuit).first().get_suit_display()
 
-def GetCardValueDisplay(cardValue):
+def GetCardValueDisplay(cardValue: int) -> str:
     return Cards.objects.filter(value=cardValue).first().get_value_display()
 
 """
